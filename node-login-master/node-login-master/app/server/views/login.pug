@@ -1,0 +1,36 @@
+
+extends layout
+
+block content
+	#login.center-vertical
+		form.card.card-body.bg-light(method='post')
+			h2 Olá Murillo !!
+			h6 Por favor, faça o login na sua conta
+			.form-group
+				label Username
+				input.form-control(type='text', id='user-tf', name='user')
+			.form-group
+				label Senha
+				input.form-control(type='password', id='pass-tf', name='pass')
+			#row1
+				button(type='button')#btn_remember.btn.btn-light.btn-left
+					span.fa.fa-check-square
+					| Lembrar Senha
+				button(type='submit')#btn_sign_in.btn.btn-primary
+					span.fa.fa-lock
+					| logar
+			hr
+			.btm-links
+				#forgot-password
+					a(href='#') Esqueceu sua senha?
+				#create-account
+					a(href='/signup') Criar Conta
+
+	include modals/alert
+	include modals/lost-password
+
+block scripts
+	script(src='/js/views/login.js')
+	script(src='/js/controllers/loginController.js')
+	script(src='/js/form-validators/loginValidator.js')
+	script(src='/js/form-validators/emailValidator.js')
